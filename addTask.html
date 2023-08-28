@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add New Task</title>
+</head>
+<body>
+    
+    <h1>Add New Task</h1>
+    <form id="taskForm">
+        <label for="taskName">Task Name:</label>
+        <input type="text" id="taskName" name="taskName"><br>
+
+        <label for="assignedTo">Assigned To:</label>
+        <input type="text" id="assignedTo" name="assignedTo"><br>
+
+        <label for="priority">Priority:</label>
+        <input type="number" id="priority" name="priority" min="1" max="5"><br>
+
+        <label for="description">Description:</label>
+        <textarea id="description" name="description"></textarea><br>
+        <input type="button" id="saveToCSV" value="Save to CSV">
+        <input type="submit" value="Add Task">
+
+    </form>
+    <script src="addTask.js"></script>
+</body>
+</html>
