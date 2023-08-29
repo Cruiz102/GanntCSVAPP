@@ -57,3 +57,57 @@
     /* text-shadow: 2px 2px #ccc;    Add a subtle text shadow */
   }
   
+
+/* Styling for all buttons */
+.button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 12px 24px;
+  border-radius: 4px;
+  cursor: pointer;
+  text-align: center;
+  margin: 5px;
+}
+
+/* Hover effect for buttons */
+.button:hover {
+  background-color: #45a049;
+}
+
+/* ... (existing styles) ... */
+
+/* Styling for Gantt Chart background */
+#ganttChart {
+  background-color: #f0f4f7; /* Light blue-grey background */
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Styling for Task Table background */
+#taskDescriptions {
+  background-color: #fffaf0; /* Light ivory background */
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* ... (existing button styles) ... */
+
+/* ... (existing styles) ... */
+
+/* Button Row */
+.button-row {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 10px; /* Space between buttons */
+}
+
+/* Style for smaller buttons */
+.small-button {
+  padding: 8px 16px; /* Smaller than default */
+  font-size: 14px; /* Smaller font */
+}
+
+/* ... (existing styles) ... */
