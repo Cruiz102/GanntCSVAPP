@@ -43,6 +43,7 @@
     cursor: pointer;
     border-radius: 4px;
     text-align: center;
+    margin: 2%;
   }
   
   .file-upload-label:hover {
@@ -111,3 +112,4 @@
 }
 
 /* ... (existing styles) ... */
+
