@@ -22,16 +22,4 @@ const assignedTo = document.getElementById('assignedTo').value;
 const priority = document.getElementById('priority').value;
 const description = document.getElementById('description').value;
 
-// Send this data to your Node.js server
-fetch('http://localhost:4000/addTask', {
-    method: 'POST',
-    headers: {
-    'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({ taskName, assignedTo, priority, description })
 })
-.then(response => response.json())
-.then(data => alert(data.message))
-.catch((error) => console.error('Error:', error));
-});
-

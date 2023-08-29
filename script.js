@@ -40,7 +40,9 @@ document.getElementById('csvFile').addEventListener('change', function(event) {
       header: true,
       dynamicTyping: true,
       complete: function(results) {
-        localStorage.setItem('csvData', JSON.stringify(results.data)); // Save to local storage
+        // localStorage.setItem('csvData', JSON.stringify(results.data));
+        console.log("Hollla")
+        console.log(results.data) // Save to local storage
         createGanttChart(results.data);
         createDescriptionTable(results.data);
       }
@@ -49,6 +51,8 @@ document.getElementById('csvFile').addEventListener('change', function(event) {
 
 // ... (rest of your code for createGanttChart and createDescriptionTable)
 
+
+// ------
 
 
 
@@ -158,19 +162,22 @@ function createDescriptionTable(data) {
     // Empty the tbody to make room for new data
     $('#taskTable tbody').empty();
 
-// Populate the tbody with data from the CSV
-data.forEach(d => {
-    const rowClass = "row-" + d.Task.replace(/ /g, "-");  // Unique class
-    $('#taskTable tbody').append(`
-      <tr class="${rowClass}">
-        <td>${d.Task}</td>
-        <td>${d.AssignedTo}</td>
-        <td>${d.PriorityNumber}</td>
-        <td>${d.Description}</td>
-      </tr>
-    `);
-  });
-  
+    data.forEach(d => {
+      if (d.Task) {  // Check for null or undefined
+        const rowClass = "row-" + d.Task.replace(/ /g, "-");  // Unique class
+        $('#taskTable tbody').append(`
+          <tr class="${rowClass}">
+            <td>${d.Task}</td>
+            <td>${d.AssignedTo}</td>
+            <td>${d.PriorityNumber}</td>
+            <td>${d.Description}</td>
+          </tr>
+        `);
+      } else {
+        console.warn("Skipping row with null or undefined Task");
+      }
+    });
+    
 
     // Initialize DataTable
     $('#taskTable').DataTable({
