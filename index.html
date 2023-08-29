@@ -5,14 +5,14 @@
   <link rel="stylesheet" href="style.css">
   <script src="https://d3js.org/d3.v5.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
 </head>
 <body>
     <h1 id="pageTitle">Your Gantt Chart Project</h1>
     <div class="file-upload-wrapper button-row">
       <input type="file" id="csvFile" class="file-upload-input">
       <label for="csvFile" class="file-upload-label">Choose File</label>
-      <button id="saveCSV" class="button">Save CSV File</button> <!-- Added class "button" -->
-      <button id="goToForm" class="button">Add New Task</button> <!-- Added class "button" -->
+
     </div>
   <div id="ganttChart"></div>
   <div id="taskDescriptions"></div>
@@ -37,7 +37,6 @@
       </tbody>
     </table>
   </div>
-  <script src="addTask.js"></script>
   <script src="script.js"></script>
 </body>
 </html>

@@ -189,3 +189,36 @@ function createDescriptionTable(data) {
       "autoWidth": false,
     });
 }
+
+function saveCSV(data) {
+  // Convert JSON data to CSV string
+  let csv = "Task,Start,End,AssignedTo,PriorityNumber,Description\n";
+  data.forEach((row) => {
+      csv += `${row.Task},${row.Start},${row.End},${row.AssignedTo},${row.PriorityNumber},${row.Description}\n`;
+  });
+
+  // Create a Blob object from the CSV string
+  const blob = new Blob([csv], { type: "text/csv" });
+  saveAs(blob)
+
+  // Create an anchor element and attach the Blob object as its href
+  const url = window.URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.setAttribute("hidden", "");
+  a.setAttribute("href", url);
+  a.setAttribute("download", "plot_data.csv");
+
+  // Append the anchor element to the document, trigger a click (to open the download dialog), and remove it
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+}
+document.getElementById('saveCSV').addEventListener('click', function() {
+  // Retrieve the data (assuming you have it stored in a variable called 'data')
+  const data = JSON.parse(localStorage.getItem('csvData')) || [];
+
+  // Call the saveCSV function to save the data to a CSV file
+  saveCSV(data);
+});
+
+
