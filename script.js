@@ -1,14 +1,56 @@
+
+// Main event listener for file input
+document.getElementById('csvFile').addEventListener('change', function(event) {
+  Papa.parse(event.target.files[0], {
+    header: true,
+    dynamicTyping: true,
+    complete: function(results) {
+      localStorage.setItem('csvData', JSON.stringify(results.data)); // Save to local storage
+      createGanttChart(results.data);
+      createDescriptionTable(results.data);
+    }
+  });
+});
+
+
+document.addEventListener("DOMContentLoaded", function() {
+  const savedCsvData = localStorage.getItem('csvData');
+  if (savedCsvData) {
+    const parsedData = JSON.parse(savedCsvData);
+    createGanttChart(parsedData);
+    createDescriptionTable(parsedData);
+  }
+
+  // Your other DOMContentLoaded code here
+});
+
+// Check for saved data on page load
+document.addEventListener("DOMContentLoaded", function() {
+  const savedCsvData = localStorage.getItem('csvData');
+  if (savedCsvData) {
+    const parsedData = JSON.parse(savedCsvData);
+    createGanttChart(parsedData);
+    createDescriptionTable(parsedData);
+  }
+});
+
 // Main event listener for file input
 document.getElementById('csvFile').addEventListener('change', function(event) {
     Papa.parse(event.target.files[0], {
       header: true,
       dynamicTyping: true,
       complete: function(results) {
+        localStorage.setItem('csvData', JSON.stringify(results.data)); // Save to local storage
         createGanttChart(results.data);
         createDescriptionTable(results.data);
       }
     });
 });
+
+// ... (rest of your code for createGanttChart and createDescriptionTable)
+
+
+
 
 // Function to create the Gantt chart
 function createGanttChart(data) {

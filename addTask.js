@@ -10,6 +10,11 @@ document.addEventListener("DOMContentLoaded", function() {
           });
 });
 
+document.getElementById('backToIndex').addEventListener('click', function() {
+    window.location.href = "index.html";
+});
+
+
 
 document.getElementById('saveToCSV').addEventListener('click', function() {
 const taskName = document.getElementById('taskName').value;
